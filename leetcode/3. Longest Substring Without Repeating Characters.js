@@ -1,4 +1,4 @@
-//-:b-
+//-:b- not working
 var lengthOfLongestSubstring = function (s) {
   const Array = [...new Set(s)];
   for (let value of Array) {
