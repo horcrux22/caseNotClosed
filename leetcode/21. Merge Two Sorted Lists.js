@@ -1,12 +1,15 @@
-//--edit---
+//--runtime error :P---
 var mergeTwoLists = function (list1, list2) {
   var output = [];
   if (list1.length * list2.length == 0) {
+    console.log(output,'if');
+
     return list1.concat(list2);
   } else {
     for (var i = 0; Math.max(list1.length, list2.length); i++) {
       if (list1[i] == undefined || list2[i] == undefined) {
         if (list1.length == list2.length) {
+          console.log(output,'elseif');
           return output;
         } else if (list1.length > list2.length) {
           return output.concat(list1.slice(i));
@@ -15,15 +18,16 @@ var mergeTwoLists = function (list1, list2) {
         }
       } else {
         if (list1[i] < list2[i]) {
-          output.push(list2[i]);
           output.push(list1[i]);
+          output.push(list2[i]);
         } else {
-          output.push(list1[i]);
           output.push(list2[i]);
+          output.push(list1[i]);
         }
       }
     }
   }
+  console.log(output,'final');
   return output;
 };
 
