@@ -1,27 +1,30 @@
 //-:b- not working
 var lengthOfLongestSubstring = function (s) {
-  const Array = [...new Set(s)];
-  for (let value of Array) {
-    if (s.split(value).length > 2) {
-      var calculate = s
-        .split(value)
-        .slice(1, s.split(value).length - 1)
-        .map((X) => X.length);
+  var editArr = [...new Set(s.split(""))];
+  console.log(s, editArr, "origin");
+  for (var i = 0; i < editArr.length; i++) {
+    var arr = [];
+    var a = "";
+    for (var j = 0; j < s.length; j++) {
+      if (s[j] != editArr[i]) {
+        a += s[j];
+      } else if (s[j] == editArr[i]) {
+        if (a.length > 0) {
+          arr.push(a);
+          a = "";
+        }
+        arr.push(s[j]);
+      }
     }
-  }
-  //console.log(calculate)
-  if (s.length > 2) {
-    return Math.max(...calculate) + 1;
-  } else if(s.length==2 && s[0]==s[1]){
-    return 1;
-  }
-  else {
-    return s.length;
+    if (arr[0] != editArr[i]) {
+      arr.shift();
+    }
+    console.log(arr)
+    console.log(arr.filter((x)=> x != editArr[i]).map((y)=>y.length));
   }
 };
-// console.log(Math.max(...calculate)+1)
 
-lengthOfLongestSubstring("aabb");
+lengthOfLongestSubstring("abcabcbb");
 /*
 3. Longest Substring Without Repeating Characters
 
@@ -34,17 +37,20 @@ Example 1:
 Input: s = "abcabcbb"
 Output: 3
 Explanation: The answer is "abc", with the length of 3.
+
 Example 2:
 
 Input: s = "bbbbb"
 Output: 1
 Explanation: The answer is "b", with the length of 1.
+
 Example 3:
 
 Input: s = "pwwkew"
 Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
 Example 4:
 
 Input: s = ""
