@@ -19,29 +19,7 @@ var plusOne = function (digits) {
   }
 
   digits.reverse();
-  console.log(digits); // working ......
-  var plusOne = function (digits) {
-    digits.reverse();
-    digits[0] += 1;
-    var save = 0;
-
-    for (var i = 0; i < digits.length - 1; i++) {
-      save = digits[i];
-
-      if (digits[i] >= 10) {
-        digits[i] = save % 10;
-        digits[i + 1] += parseInt(save / 10);
-      }
-    }
-    save = digits[digits.length - 1];
-    if (digits[digits.length - 1] >= 10) {
-      digits[digits.length - 1] = save % 10;
-      digits.push(parseInt(save / 10));
-    }
-
-    digits.reverse();
-    return digits
-  };
+  console.log(digits);   
 };
 //plusOne( [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3])
 // plusOne([4,3,2,1])
