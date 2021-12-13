@@ -1,16 +1,12 @@
 function solution(k, dungeons) {
   var answer = k;
-  var count = 0;
-  console.log(dungeons);
+  
+  console.log(dungeons.filter((x)=>x[0]<=k));
 
   return answer;
 }
 
-solution(80, [
-  [80, 20],
-  [50, 40],
-  [30, 10],
-]); //3
+solution(80, [[80, 20],[50, 40],[30, 10]]); //3
 
 /*
 dungeons=dungeons.sort((a,b)=> b[0]-a[0])
